@@ -39,6 +39,10 @@ function movieRequest(queryString){
 };
 
 function spotifyRequest(spotifyQuery, x) {
+    var spotify = new Spotify({
+        id: '6c78e264059b4b01ba12955159873e22',
+        secret: '8d4ddfd171c54a509bce295f991d27d9'
+    });
     spotify.search({ type: 'track', query: spotifyQuery }, function(err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
@@ -62,10 +66,6 @@ if (appName === "movie-this") {
 }
 else if (appName === "spotify-this-song") {
 
-    var spotify = new Spotify({
-        id: '6c78e264059b4b01ba12955159873e22',
-        secret: '8d4ddfd171c54a509bce295f991d27d9'
-    });
     if ( argString !== ""){
         spotifyRequest(argString, 0);
     }
