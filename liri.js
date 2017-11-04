@@ -100,19 +100,10 @@ else if (appName === "do-what-i-say" && argString === "") {
         }
            
         var output = data.split(",");
-        console.log(output[1]);
-        // if (output[0] === "spotify-this-song"){
-        //     spotify.search({ type: 'track', query: output[1] }, function(err, data) {
-        //         if (err) {
-        //             return console.log('Error occurred: ' + err);
-        //         }
-        
-        //         console.log(data.tracks.items[x].album.artists[0].name);
-        //         console.log(data.tracks.items[x].album.artists[0].external_urls.spotify);
-        //         console.log(data.tracks.items[x].album.name);
-        //         console.log(data.tracks.items[x].name);
-        //     });
-        // }
+
+        if (output[0] === "spotify-this-song"){
+            spotifyRequest(output[1], 0);
+        }
         if (output[0] === "movie-this"){
             movieRequest(output[1]);
         }
@@ -120,7 +111,7 @@ else if (appName === "do-what-i-say" && argString === "") {
 
         }
         
-        // spotifyRequest(output[1]);
+
         for(i = 0; i < output.length; i++){
             console.log(output[i]);
         }
